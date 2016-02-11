@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="MobileKart">
+  <head>
+    <meta charset="utf-8">
+    <title>Mobile Kart with Angular JS </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="./app.js"></script>
+  </head>
+  <body>
+    <div class="row">
+    <div id="header-wrapper" ng-controller="HeaderCtrl">
+      <span class="logo pull-left">{{appDetails.title}}</span>
+      <span class="tagline pull-left">{{appDetails.tagline}}</span>
+      <div class="nav-wrapper pull-left">
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#">Mobiles</a></li>
+          <li><a href="#">Kart</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div id="MobileListWrapper" ng-controller="MobileListCtrl">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <form role="form">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search here ...">
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+    <ul class="list-unstyled">
+      <li class="mobile" style="background: white url(imgs/{{mobile.imageUrl}}) no-repeat"
+          ng-repeat="mobile in mobiles">
+        <div class="mobile-details clearfix">
+          <h3>{{mobile.name}}</h3>
+          <p>{{mobile.price}}</p>
+          <ul class="list-unstyled list-inline">
+            <li>Rating: {{mobile.rating}}</li>
+            <li>Manufacturer: {{mobile.manufacturer}}</li>
+          </ul>
+          <p>{{mobile.description}}</p>
+          <button class="btn btn-info pull-right">Add to Kart</button>
+        </div>
+      </li>
+    </ul>
+        </div>
+
+  </body>
+</html>
